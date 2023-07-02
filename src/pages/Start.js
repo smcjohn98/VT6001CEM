@@ -59,7 +59,7 @@ function Start() {
     <Container maxWidth="lg">
       <Grid container justifyContent="center" sx={{ mt: 5, backgroundColor: 'white', borderRadius: '30px', padding: '30px' }}>
         <Grid item xs={12} sx={{ textAlign: 'center', mb: 4 }}>
-          <Select value={selectedPose} onChange={poseOnChange} sx={{ width: "400px" }}> 
+          <Select value={selectedPose} onChange={poseOnChange} sx={{ width: "100%", maxWidth: "500px" }}> 
             {poseOptions}
           </Select>
         </Grid>
