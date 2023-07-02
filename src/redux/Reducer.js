@@ -19,7 +19,6 @@ export const Slice = createSlice({
     setPose: (state, action) => {
       state.currentPose = action.payload.pose;
       state.posePayload = action.payload.payload;
-      console.log(action.payload)
     },
     clearPost: (state, action) => {
       state.currentPost = null;

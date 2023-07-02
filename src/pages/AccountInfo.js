@@ -4,8 +4,7 @@ import { getUser, setUser } from '../redux/Reducer';
 import { auth } from '../utils/firebase';
 import { useState, useEffect } from 'react';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { FirebaseError } from 'firebase/app';
-import { saveRecordToMongoAtlas } from '../utils/mongoAtlas';
+import { Link } from 'react-router-dom';
 
 function AccountInfo() {
     const user = useSelector(getUser);
@@ -43,10 +42,6 @@ function AccountInfo() {
     const handleNameChange = (event) => {
         setName(event.target.value);
     };
-
-    const test = () => {
-        saveRecordToMongoAtlas({pose:"Tree", count:300});
-    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -191,7 +186,7 @@ function AccountInfo() {
 
             <Container maxWidth="lg">
                 <Grid container justifyContent="center" sx={{ mt: 5, backgroundColor: 'white', borderRadius: '30px', padding: '30px' }}>
-                    <Grid item xs={12} sx={{ textAlign: 'center', mb: 4 }}>
+                    <Grid item xs={12} sx={{ textAlign: 'center' }}>
                         <Typography variant="h4" component="h1" sx={{ fontFamily: 'Raleway, sans-serif', fontSize: 32, mb: 3 }}>
                             Account Info
                         </Typography>
@@ -204,7 +199,8 @@ function AccountInfo() {
                             :
                             <div>
                                 <Typography>Hi, {user.name}</Typography>
-                                <Button onClick={test}>Test</Button>
+                                <Button component={Link} to="/chart" >Chart</Button>
+                                <Button component={Link} to="/start" >Training</Button>
                                 <Button onClick={handleLogout}>Logout</Button>
                             </div>
                         }

@@ -1,3 +1,4 @@
-import count from './count.wav'
+import finishMusic from './finish.mp3'
+import countMusic from './count.mp3'
 
-export { count }
+export { finishMusic, countMusic }

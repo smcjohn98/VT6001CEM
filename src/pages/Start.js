@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getPose, setPose } from '../redux/Reducer';
 import { poseList, REP_POSE, HOLD_POSE } from '../utils/data';
 import Training from './Training';
+import TrainingRep from './TrainingRep';
 
 
 function Start() {
@@ -32,7 +33,7 @@ function Start() {
 
   const poseOptions = Object.entries(poseList).map(([key, value]) => (
     <MenuItem key={key} value={key} sx={{justifyContent:"center"}}>
-      {key}
+      {value.name}
       <img src={value.image} alt={key} width="80" height="80" />
     </MenuItem>
   ));
@@ -48,7 +49,10 @@ function Start() {
   }
 
   if(currentPose){
-    return <Training/>
+    if(poseList[selectedPose].type === HOLD_POSE)
+      return <Training/>
+    else if(poseList[selectedPose].type === REP_POSE)
+      return <TrainingRep/>
   }
   
   return (
@@ -79,7 +83,7 @@ function Start() {
 
         <Grid item xs={12} sx={{ textAlign: 'center', mb: 4 }}>
             <TextField
-            label="Holding Time"
+            label="Training Time"
             type="number"
             value={poseNum}
             onChange={handleInputChange}

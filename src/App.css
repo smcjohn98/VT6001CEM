@@ -21,6 +21,27 @@ body, html {
   color: black !important;
 }
 
+
+.btn-error{
+  padding:24px 32px !important;
+  background-color:red !important;
+  color:white !important;
+  text-align:center !important;
+  margin:25px 15px !important;
+  border-radius: 10px !important;
+  text-transform: none !important;
+}
+
+.btn-pass{
+  padding:24px 32px !important;
+  background-color: green !important;
+  color:white !important;
+  text-align:center !important;
+  margin:25px 15px !important;
+  border-radius: 10px !important;
+  text-transform: none !important;
+}
+
 .title {
   font-size: 32px !important;
   color: #2A2D34 !important;

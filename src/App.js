@@ -6,6 +6,7 @@ import Start from './pages/Start'
 import Help from './pages/Help'
 import AccountInfo from './pages/AccountInfo'
 import './App.css'
+import Chart from './pages/Chart'
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Route path='/' element={<Home />}/>
         <Route path='/start' element={<Start />} />
         <Route path='/help' element={<Help />} />
+        <Route path='/chart' element={<Chart />} />
       </Routes>
     </Router>
   )
