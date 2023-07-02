@@ -65,7 +65,7 @@ function Start() {
         </Grid>
 
         <Grid container item xs={12} sx={{ textAlign: 'center', mb: 4 }}>
-          <Grid item xs={8}>
+          <Grid item xs={12} lg={8}>
             <Typography variant="h6" sx={{ mb: 2 }}>
               Description
             </Typography>
@@ -76,7 +76,7 @@ function Start() {
             <Typography sx={{ mb: 2 }}>{poseList[selectedPose]?.benefit}</Typography>
             <Typography variant="h6" sx={{ mb: 2 }} display="inline">Pose Type : {typeEnumToString(poseList[selectedPose]?.type)}</Typography>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} lg={4}>
             <img height="100%" width="100%" src={poseList[selectedPose]?.image} />
           </Grid>
         </Grid>

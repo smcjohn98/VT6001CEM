@@ -69,6 +69,11 @@ function TrainingRep() {
   }, [poseStatus, detector, poseClassifier])
 
   const finishPose = async () => {
+    if(!user.userId){
+      dispatch(setPose({}))
+      return;
+    }
+    
     let obj = { userId: user.userId, pose: currentPose, count: trainingTime, type: currentPosePayload.type }
     setLoading(true)
     saveRecordToMongoAtlas(obj).then(r => {

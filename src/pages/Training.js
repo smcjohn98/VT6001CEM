@@ -54,6 +54,10 @@ function Training() {
   }, [])
 
   const finishPose = async () => {
+    if(!user.userId){
+      dispatch(setPose({}))
+      return;
+    }
     let obj = { userId: user.userId, pose: currentPose, count: trainingTime, type:currentPosePayload.type }
     setLoading(true)
     saveRecordToMongoAtlas(obj).then(r => {
@@ -158,7 +162,7 @@ function Training() {
             <Typography variant="h3">Proba: {probability}</Typography>
           </Grid>
           <Grid container item xs={12} sx={{ textAlign: 'center', mb: 4 }}>
-            <Grid item xs={6} position="relative">
+            <Grid item xs={12} lg={6} position="relative">
               <Webcam
                 width='640px'
                 height='480px'
@@ -179,7 +183,7 @@ function Training() {
                 }}
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} lg={6}>
               <img width="100%" src={poseList[currentPose].image} />
             </Grid>
           </Grid>
