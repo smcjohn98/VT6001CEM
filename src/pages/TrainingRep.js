@@ -41,8 +41,8 @@ function TrainingRep() {
   useEffect(() => {
     const defaultStatus = classificationPhysicalEnum[currentPose]['defaultStatus'];
     if (poseStatus === defaultStatus) {
-      if (count >= 0)
-        countAudio.play()
+      //if (count >= 0)
+        //countAudio.play()
       setCount(count + 1)
     }
   }, [poseStatus])
@@ -149,6 +149,7 @@ function TrainingRep() {
 
           const probability = data[0][passPoseClassNo]
           if (probability > passProbability) {
+            countAudio.play()
             setPoseStatus(updatePoseStatus);
             skeletonColor = 'rgb(0,255,0)'
           } else {
@@ -184,7 +185,7 @@ function TrainingRep() {
                 <CheckCircleOutlineOutlinedIcon sx={{ fontSize: 100 }} color="success" />
               </Grid>
             }
-            <Typography variant="h3">Proba: {upProbability} / {downProbability}</Typography>
+            <Typography variant="h3">Correctness: {Math.round(upProbability * 10000) / 100} % / {Math.round(downProbability * 10000) / 100} %</Typography>
           </Grid>
           <Grid container item xs={12} sx={{ textAlign: 'center', mb: 4 }}>
             <Grid item xs={12} lg={6} position="relative">

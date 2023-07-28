@@ -159,7 +159,7 @@ function Training() {
                 <CheckCircleOutlineOutlinedIcon sx={{ fontSize: 100 }} color="success" />
               </Grid>
             }
-            <Typography variant="h3">Proba: {probability}</Typography>
+            <Typography variant="h3">Correctness: {Math.round(probability * 10000) / 100 } %</Typography>
           </Grid>
           <Grid container item xs={12} sx={{ textAlign: 'center', mb: 4 }}>
             <Grid item xs={12} lg={6} position="relative">
